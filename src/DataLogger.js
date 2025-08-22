@@ -1,4 +1,5 @@
 var fs = require('fs');
+var path = require('path');
 
 class  DataLogger{
     #filePath = "";
@@ -88,7 +89,7 @@ class  DataLogger{
         }
     }
     createLogFile(fileName,obj){
-        this.#filePath = this.#filePath + "\\" + fileName + this.#fileExtension; 
+        this.#filePath = path.join(this.#filePath, fileName, this.#fileExtension);
         try {
             if (!fs.existsSync(this.#filePath)) {
                 fs.writeFileSync(this.#filePath, "");
