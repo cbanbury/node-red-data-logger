@@ -89,7 +89,7 @@ class  DataLogger{
         }
     }
     createLogFile(fileName,obj){
-        this.#filePath = path.join(this.#filePath, fileName, this.#fileExtension);
+        this.#filePath = path.join(this.#filePath, fileName + this.#fileExtension);
         try {
             if (!fs.existsSync(this.#filePath)) {
                 fs.writeFileSync(this.#filePath, "");
